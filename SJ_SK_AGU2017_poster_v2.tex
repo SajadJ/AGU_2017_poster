@@ -104,7 +104,7 @@ field conditions or on traditional ray-based inversion methods and an optimal so
 
 \begin{alertblock}{Components}
 	
-The package has five main components, FWI is performed in an  iterative process and needs initial models preparation. Here are the components:
+FWI is performed in an iterative process and needs initial models preparation. The package has five main components:
 	\begin{enumerate}
 		\item \hspace{1cm} \texttt{Forward Modeler}
 		\item \hspace{1cm} \texttt{Inversion Algorithm}
@@ -151,7 +151,7 @@ The package has five main components, FWI is performed in an  iterative process 
 	\includegraphics[width=0.8\linewidth]{PEST_flat.jpg}
 	\vspace{1cm}
 	\includegraphics[width=1.05\linewidth]{pest_image.png}
-	\caption{PEST sample control and template files\cite{pest}}
+	\caption{PEST sample control and template files~\cite{pest}}
 \end{figure}
 
 \end{block}
@@ -166,9 +166,9 @@ The package has five main components, FWI is performed in an  iterative process 
 %	METHODS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{\textsc{\texttt{ SW estimator}}}
+\begin{block}{\textsc{\texttt{ Source wavelet estimator}}}
 	
-Apply \textbf{Sparse Blind Deconvolution} to estimate  waveform. Data is convolution product of the source wavelet and the reflecitivity series (impulse response).
+Apply \textbf{Sparse Blind Deconvolution} (SBD) to estimate the transmitted waveform. Data is convolution product of the source wavelet and the reflecitivity series (impulse response).
 
 %\vspace*{1.5cm}
 	\begin{figure}
@@ -177,7 +177,8 @@ Apply \textbf{Sparse Blind Deconvolution} to estimate  waveform. Data is convolu
 		\line(1,0){900}
 		\vspace{1cm}
 		\includegraphics[width=0.98\linewidth]{SBD_synthetic_refl.png}
-		\caption{Sparsity Based Source wavelet estimation, synthetic case \cite{jazayeri2017sparse}}
+		\caption{Sparsity Based Source wavelet estimation, synthetic case \cite{jazayeri2017sparse}.
+		Top: Process of generating synthetic data; Botton: SBD results}
 	\end{figure}
 	
 \end{block}
@@ -194,7 +195,7 @@ Apply \textbf{Sparse Blind Deconvolution} to estimate  waveform. Data is convolu
 
 \begin{alertblock}{Key factors}
 
-FWI is an iterative process, where the \textbf{starting models} are very important to increase the success of the process. Also, no FWI process would be possibly successful without a good \textbf{source wavelet}.
+FWI is an \textit{iterative process}, where the \textbf{starting models} are very important to increase the success of the process. Also, no FWI process would be possibly successful without a good \textbf{source wavelet}.
 
 \end{alertblock} 
 
@@ -210,7 +211,7 @@ FWI is an iterative process, where the \textbf{starting models} are very importa
 
 \begin{block}{\textsc{\texttt{Ray-based analyzer}}}
 
-Use ray-based analysis to estimate the initial parameters. We use travel times of the peak amplitudes of the diffraction hyperbola within a \textbf{least-squares} approach to estimate model parameters.  
+Use ray-based analysis to estimate the initial parameters. We use travel times of the peak amplitudes of the diffraction hyperbola within \textbf{least-squares} approaches to estimate model parameters.  
 
 \begin{figure}
 	\includegraphics[width=0.7\linewidth]{ray-based.png}
@@ -233,8 +234,8 @@ Use ray-based analysis to estimate the initial parameters. We use travel times o
 \begin{figure}
 	\includegraphics[width=0.4\linewidth]{SBD_pipe_sw.png}
 	
-	\includegraphics[width=0.7\linewidth]{SBD_pipe_refl.png}
-	\caption{\textrm{SBD resulted source wavelet and reflectivity series~\cite{jazayeri2017sparse}}}
+	\includegraphics[width=0.65\linewidth]{SBD_pipe_refl.png}
+	\caption{\textrm{SBD resulted source wavelet and reflectivity series for the real pipe~\cite{jazayeri2017sparse}}}
 \end{figure}
 \end{block}
 
@@ -263,7 +264,7 @@ Use ray-based analysis to estimate the initial parameters. We use travel times o
 	
 	\begin{figure}
 		\includegraphics[width=1\linewidth]{FWI_pipes_frames.png}
-		\caption{Collected and synthetic data fit after ray-based, SW correction and FWI \cite{jazayeri2017}}
+		\caption{Collected and synthetic pipe data fit after ray-based, SW correction and FWI \cite{jazayeri2017}}
 	\end{figure}
 	
 \end{block}
@@ -277,7 +278,7 @@ Use ray-based analysis to estimate the initial parameters. We use travel times o
 
 \begin{block}{Acknowledgements}
 	
-	\small{\rmfamily{We would like to thank Mr. A. Ebrahimi for his useful comments on SBD, Drs. J. Doherty, A. Giannopoulos and C. Warren for making their codes open-source.}} \\
+	\small{\rmfamily{We would like to thank Drs. J. Doherty, A. Giannopoulos and C. Warren for making their codes open-source and Mr. A. Ebrahimi for his helpful discussions on SBD.}} \\
 	
 \end{block}
 
