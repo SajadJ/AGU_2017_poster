@@ -38,7 +38,7 @@
 %	TITLE SECTION 
 %----------------------------------------------------------------------------------------
 
-\title{\textrm{Development of \textbf{FWI4GPR}, an open-source package for Full-Waveform Inversion of common-offset GPR data}} % Poster title
+\title{\textbf{Development of \textbf{FWI4GPR}, an open-source package for Full-Waveform Inversion of common-offset GPR data}} % Poster title
 
 \author{\textrm{\textit{Sajad Jazayeri}, Sarah Kruse}} % Author(s)
 \institute{\textrm{~~School of Geosciences, University of South Florida}} % Institution(s)
@@ -92,8 +92,7 @@
 \begin{block}{Introduction}
 
 We introduce a package for full-waveform inversion (FWI) of Ground Penetrating Radar (GPR) data based on a
-combination of open-source programs. FWI is non-linear data-fitting procedure that aims at obtaining detailed estimates of subsurface properties from data using an iterative process. It requires a good starting model, based on direct knowledge of
-field conditions or on traditional ray-based inversion methods and an optimal source wavelet. With a good starting model and wavelet, the FWI can improve resolution of selected subsurface features. The package will be made available for general use in educational and research activities.
+combination of open-source programs. FWI is non-linear data-fitting procedure that aims at obtaining optimal estimates of selected subsurface properties using the entire traces of GPR data in an iterative process. The FWI requires a good starting model, based on direct knowledge of field conditions or on traditional data analysis methods and a good estimate of the source wavelet. With a good starting model and wavelet, the FWI can improve resolution of selected subsurface features, such as the dimensions of buried object. The package will be made available for general use in educational and research activities.
 
 \end{block}
 
@@ -108,14 +107,13 @@ FWI is performed in an iterative process and needs initial models preparation. T
 	\begin{enumerate}
 		\item \hspace{1cm} \texttt{Forward Modeler}
 		\item \hspace{1cm} \texttt{Inversion Algorithm}
-		\item \hspace{1cm} \texttt{Ray-based analyzer}
+		\item \hspace{1cm} \texttt{Ray-based analyzer (= arrival time pick analysis)}
 		\item \hspace{1cm} \texttt{Source Wavelet (SW) estimator}
 		\item \hspace{1cm} \texttt{3D to 2D converter} 
 	\end{enumerate}
 	
 \end{alertblock}
 
-\vspace*{2cm}
 
 %------------------------------------------------
 \begin{block}{\textsc{\texttt{Forward Modeler}}}
@@ -166,9 +164,9 @@ FWI is performed in an iterative process and needs initial models preparation. T
 %	METHODS
 %----------------------------------------------------------------------------------------
 
-\begin{block}{\textsc{\texttt{ Source wavelet estimator}}}
+\begin{block}{\textsc{\texttt{ Source Wavelet Estimator}}}
 	
-Apply \textbf{Sparse Blind Deconvolution} (SBD) to estimate the transmitted waveform. Data is convolution product of the source wavelet and the reflecitivity series (impulse response).
+Apply \textbf{Sparse Blind Deconvolution} (SBD) to estimate the transmitted waveform. Data are a convolution product of the wavelet and the reflectivity series (impulse response).
 
 %\vspace*{1.5cm}
 	\begin{figure}
@@ -177,7 +175,7 @@ Apply \textbf{Sparse Blind Deconvolution} (SBD) to estimate the transmitted wave
 		\line(1,0){900}
 		\vspace{1cm}
 		\includegraphics[width=0.98\linewidth]{SBD_synthetic_refl.png}
-		\caption{Sparsity Based Source wavelet estimation, synthetic case \cite{jazayeri2017sparse}.
+		\caption{Sparsity based source wavelet estimation (arrivals from the near-field are not used), synthetic case \cite{jazayeri2017sparse}.
 		Top: Process of generating synthetic data; Botton: SBD results}
 	\end{figure}
 	
@@ -192,10 +190,10 @@ Apply \textbf{Sparse Blind Deconvolution} (SBD) to estimate the transmitted wave
 %----------------------------------------------------------------------------------------
 %	IMPORTANT RESULT
 %----------------------------------------------------------------------------------------
+\vspace{-1cm}
+\begin{alertblock}{Key Factors}
 
-\begin{alertblock}{Key factors}
-
-FWI is an \textit{iterative process}, where the \textbf{starting models} are very important to increase the success of the process. Also, no FWI process would be possibly successful without a good \textbf{source wavelet}.
+FWI is an \textit{iterative process}, in which a good \textbf{starting model} can be improved. It requires traditional data analysis methods to generate a starting model. Similarly, a good \textbf{initial estimate} of the source wavelet is required.
 
 \end{alertblock} 
 
@@ -209,9 +207,9 @@ FWI is an \textit{iterative process}, where the \textbf{starting models} are ver
 %	MATHEMATICAL SECTION
 %----------------------------------------------------------------------------------------
 
-\begin{block}{\textsc{\texttt{Ray-based analyzer}}}
+\begin{block}{\textsc{\texttt{Ray-Based Analyzer}}}
 
-Use ray-based analysis to estimate the initial parameters. We use travel times of the peak amplitudes of the diffraction hyperbola within \textbf{least-squares} approaches to estimate model parameters.  
+Use ray-based analysis to estimate the initial parameters. For example, we use travel times of the peak amplitudes of the diffraction hyperbola with \textbf{least-squares} approaches to estimate model parameters.  
 
 \begin{figure}
 	\includegraphics[width=0.7\linewidth]{ray-based.png}
@@ -235,7 +233,7 @@ Use ray-based analysis to estimate the initial parameters. We use travel times o
 	\includegraphics[width=0.4\linewidth]{SBD_pipe_sw.png}
 	
 	\includegraphics[width=0.65\linewidth]{SBD_pipe_refl.png}
-	\caption{\textrm{SBD resulted source wavelet and reflectivity series for the real pipe~\cite{jazayeri2017sparse}}}
+	\caption{\textrm{SBD derived source wavelet and reflectivity series for the real pipe~\cite{jazayeri2017sparse}}}
 \end{figure}
 \end{block}
 
